@@ -2,6 +2,7 @@
 //   Export pinned messages as ical
 
 // https://github.com/github/hubot/blob/master/docs/scripting.md#http-listener
+const chrono = require('chrono-node')
 
 
 module.exports = (robot) => {
@@ -26,7 +27,10 @@ module.exports = (robot) => {
         // TODO handler error
       } else {
         data.items.forEach((x) => {
-          console.log(x)
+          const timestamp = +x.message.ts * 1000
+          const url = x.message.permalink
+          const text = x.message.text
+          console.log(timestamp, chrono.parseDate(text, timestamp))
         })
       }
       res.send('TODO')

@@ -7,5 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Chris Chang <c@crccheck.com> (https://crccheck.com)",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "dependencies": {
+    "chrono-node": "^1.2.4"
+  }
 }
