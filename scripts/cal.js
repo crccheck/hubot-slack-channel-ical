@@ -12,13 +12,13 @@ module.exports = (robot) => {
     // console.log('channel', channel)
 
     if (!channel) {
-      // 404
-      // TODO early exit because we can only deal with channels that exist
+      res.status(404).send('No channel by that name')
+      return
     }
 
     if (!channel.has_pins) {
-      // 400 ?
-      // TODO early exit because we can only deal with channels with pinned items
+      res.status(400).send('Channel must have pinned items')
+      return
     }
 
     client.web.pins.list(channel.id, (err, data) => {
