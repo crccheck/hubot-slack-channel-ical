@@ -9,6 +9,7 @@
   "author": "Chris Chang <c@crccheck.com> (https://crccheck.com)",
   "license": "Apache-2.0",
   "dependencies": {
-    "chrono-node": "^1.2.4"
+    "chrono-node": "^1.2.4",
+    "ical-generator": "^0.2.7"
   }
 }
