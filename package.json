@@ -1,0 +1,11 @@
+{
+  "name": "hubot-slack-channel-ical",
+  "version": "0.1.0",
+  "description": "Create calendars based on pinned items in a channel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chris Chang <c@crccheck.com> (https://crccheck.com)",
+  "license": "Apache-2.0"
+}
