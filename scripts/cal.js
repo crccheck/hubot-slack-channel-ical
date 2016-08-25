@@ -5,8 +5,7 @@
 const chrono = require('chrono-node')
 const ical = require('ical-generator')
 
-
-function userToOrganizer(dataStore, message) {
+function userToOrganizer (dataStore, message) {
   if (message.subtype === 'bot_message') {
     // console.log('bot', dataStore.getBotById(message.bot_id))
     return {
@@ -21,7 +20,6 @@ function userToOrganizer(dataStore, message) {
     email: user.profile.email
   }
 }
-
 
 module.exports = (robot) => {
   robot.router.get('/hubot/calendar/:room.ical', (req, res) => {
@@ -53,7 +51,7 @@ module.exports = (robot) => {
         })
         // console.log('items', data.items)
 
-        const items = data.items
+        data.items
         .map((x) => ({
           url: x.message.permalink,
           text: x.message.text,

@@ -11,5 +11,8 @@
   "dependencies": {
     "chrono-node": "^1.2.4",
     "ical-generator": "^0.2.7"
+  },
+  "devDependencies": {
+    "standard": "^8.0.0"
   }
 }
