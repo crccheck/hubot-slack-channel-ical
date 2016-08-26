@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "description": "Create calendars based on pinned items in a channel",
   "engines": {
-    "node": "4.x",
-    "node": "5.x",
-    "node": "6.x"
+    "node": ">=4.0"
   },
   "main": "index.coffee",
   "scripts": {
@@ -14,12 +12,13 @@
   "author": "Chris Chang <c@crccheck.com> (https://crccheck.com)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/crccheck/fuckingansible.git"
+    "url": "https://github.com/crccheck/hubot-slack-channel-ical.git"
   },
   "bugs": {
     "url": "https://github.com/crccheck/hubot-slack-channel-ical/issues"
   },
   "license": "Apache-2.0",
+  "keywords": ["hubot", "slack", "ical"],
   "dependencies": {
     "chrono-node": "^1.2.4",
     "ical-generator": "^0.2.7"
