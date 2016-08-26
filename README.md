@@ -29,4 +29,17 @@ Commands
 How it determines the date
 --------------------------
 
-_TODO_
+To get more accurate dates, it may help to know how they're determined. The
+text for each message is run through [chrono]. See it's homepage for more
+information. To give more context, the timestamp of the message is used as the
+reference date. Times are presented in what's known as "floating time", which
+means time zones are ignored.
+
+  [chrono]: https://github.com/wanasit/chrono
+
+
+Privacy
+-------
+
+*IMPORTANT!* using this script _will_ leak pinned messages to the public by
+default.
