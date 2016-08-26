@@ -28,7 +28,8 @@ module.exports = (robot) => {
     const room = req.params.room
     const channel = dataStore.getChannelByName(room)
     // console.log('channel', channel)
-    const teamDomain = `${dataStore.getTeamById(client.rtm.activeTeamId).domain}.slack.com`
+    const team = dataStore.getTeamById(client.rtm.activeTeamId)
+    const teamDomain = `${team.domain}.slack.com`
 
     if (!channel) {
       res.status(404).send('No channel by that name')
@@ -45,7 +46,7 @@ module.exports = (robot) => {
         // TODO handler error
       } else {
         const cal = ical({
-          name: room,
+          name: `${team.domain} ${room}`,
           domain: teamDomain
           // TODO timezone from ?
         })
