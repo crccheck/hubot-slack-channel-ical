@@ -1,9 +1,11 @@
 // Description:
 //   Export pinned messages as ical
-
-// https://github.com/github/hubot/blob/master/docs/scripting.md#http-listener
+//
+// Commands:
+//  hubot calendar - Display the url for the channel calendar
 const chrono = require('chrono-node')
 const ical = require('ical-generator')
+const url = require('url')
 
 function userToOrganizer (dataStore, message) {
   if (message.subtype === 'bot_message') {
@@ -22,6 +24,7 @@ function userToOrganizer (dataStore, message) {
 }
 
 module.exports = (robot) => {
+  // https://github.com/github/hubot/blob/master/docs/scripting.md#http-listener
   robot.router.get('/hubot/calendar/:room.ical', (req, res) => {
     const client = robot.adapter.client
     const dataStore = client.rtm.dataStore
@@ -70,5 +73,19 @@ module.exports = (robot) => {
         res.send(cal.toString())
       }
     })
+  })
+
+  robot.respond(/calendar/i, (res) => {
+    const base = process.env.HUBOT_BASE_URL || process.env.HUBOT_HEROKU_KEEPALIVE_URL || ''
+    const {protocol, host} = url.parse(base)
+    const client = robot.adapter.client
+    const dataStore = client.rtm.dataStore
+    const channel = dataStore.getChannelById(res.message.room)
+    if (!channel) {
+      res.send(`You must in a channel`)
+      return
+    }
+
+    res.send(`You can access the channel calendar at ${protocol}//${host}/hubot/calendar/${channel.name}.ical`)
   })
 }

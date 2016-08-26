@@ -19,7 +19,11 @@ Add to your `external-scripts.json`:
 ]
 ```
 
-Finding the url: _TODO_
+
+Commands
+--------
+
+`hubot calendar`: Get the url for iCal feed. You must ask this in the channel.
 
 
 How it determines the date
