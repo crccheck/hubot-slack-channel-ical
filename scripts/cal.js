@@ -7,6 +7,8 @@ const chrono = require('chrono-node')
 const ical = require('ical-generator')
 const url = require('url')
 
+const DURATION_MINUTES = 3600 * 1000
+
 function userToOrganizer (dataStore, message) {
   if (message.subtype === 'bot_message') {
     // console.log('bot', dataStore.getBotById(message.bot_id))
@@ -65,7 +67,7 @@ module.exports = (robot) => {
         .filter((x) => !!x.start)
         .map((x) => cal.createEvent({
           start: x.start,
-          end: x.start + 3600 * 1000,
+          end: x.start + DURATION_MINUTES,
           organizer: x.organizer,
           summary: x.text,
           url: x.url
