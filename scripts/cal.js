@@ -70,6 +70,7 @@ module.exports = (robot) => {
           summary: x.text,
           url: x.url
         }))
+        res.set('Content-Type', 'text/calendar')
         res.send(cal.toString())
       }
     })
