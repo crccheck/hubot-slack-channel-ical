@@ -1,6 +1,6 @@
 {
   "name": "hubot-slack-channel-ical",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Create calendars based on pinned items in a channel",
   "engines": {
     "node": ">=4.0"
